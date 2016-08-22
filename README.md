@@ -4,19 +4,19 @@ Los combinators corresponden a un concepto abstracto en la programación, estas 
 
 Muchas de estas funciones vienen del libro Raymond Smullyan "To Mock a Mockingbird", que contiene diversos puzles lógicos que son resueltos en base a estas (por lo mismo muchas de estas son nombradas con especies de aves, debido al fanatismo del autor).
 
-Existen infinitos combinators, por lo que se les prestará mayor atención a aquellos que son más utilizados.
+Existen muchos combinators, por lo que se les prestará mayor atención a aquellos que son más utilizados.
 
 ## Tabla de contenido
 - [Combinator B (Bluebird o Composer)](#combinator-b-bluebird-o-composer)
-- [Combinator C (Cardinal)](#combinator-c-cardinal)
+- [Combinator C (Cardinal o Flip)](#combinator-c-cardinal-o-flip)
 - [Combinator K (Krestel)](#combinator-k-krestel)
 - [Combinator S (Starling)](#combinator-s-starling)
-- [Combinator T (Tap)](#combinator-t-tap-or-thrush)
+- [Combinator T (Thrush o Tap)](#combinator-t-thrush-o-tap)
 - [Combinator V (Vireo)](#combinator-v-vireo)
 - [Combinator W (Warbler)](#combinator-w-warbler)
 - [Combinator M (MockingBird)](#combinator-m-mockingbird)
 - [Combinator L (Lark)](#combinator-l-lark)
-- [Combinator Y (SageBird)](#combinator-y-mockingbird)
+- [Combinator Y (SageBird)](#combinator-y-sagebird)
 
 
 
@@ -44,7 +44,9 @@ const mapPowPlusOne = compose(mapPlusOne)(mapPow)
 console.log(mapPowPlusOne([2,3,6,7,8]));
 ```
 
-## Combinator C (Cardinal)
+## Combinator C (Cardinal o Flip)
+
+Se utiliza para invertir los parametros de una funcion con dos parametros
 
 Invierte los parámetros de una función
 
@@ -116,6 +118,7 @@ console.log(ConcatMap([2,4,6]))
 ## Combinator T (Tap or Thrush)
 
 Se entrega un objeto y una función, retorna el objeto evaluado en esa función
+
 
 ``` javascript
 const T = a => b => b(a)
@@ -267,6 +270,7 @@ console.log(doubleFact(4))
 ## Combinator Y (SageBird)
 
 Solo funciona en lenguajes funcionales, realiza una recursión sin necesidad de funciones ni parámetros. Generaliza la recursión.
+
 
 ``` javascript
 const Y = a => (b => b(b))(b => a(c => b(b)(c)))
