@@ -374,7 +374,9 @@ var mergeSort = Y(makeMergeSort);
 console.log(mergeSort([2,4,1,3,6,5]));
 ```
 
-## Links de interés
+## Referencias
 
 - https://www.npmjs.com/package/combinators-js
--
+- http://www.angelfire.com/tx4/cus/combinator/birds.html
+- https://www.amazon.es/Mock-Mockingbird-Other-Logic-Puzzles/dp/0192801422
+- http://kestas.kuliukas.com/YCombinatorExplained/
