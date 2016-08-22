@@ -331,6 +331,15 @@ const fact = Y(makeFact);
 // print 6
 console.log(fact(3));
 
+// fact(3) = (b => b(b))(b => makeFact(c => b(b)(c)))(3)
+// var d = b => makeFact(c => b(b)(c))
+// fact(3) = (b => b(b))(d)(3)
+// fact(3) = d(d)(3)
+// fact(3) =  makeFact(c => d(d)(c))(3)
+// al ejecutar makeFact vamos a tener que el return será 3 * d(d)(c)(2)
+// fact(3) =  3 * makeFact(c => d(d)(c))(2)
+// ...
+
 // Fibonacci example
 
 // function annonymus recursion fib
