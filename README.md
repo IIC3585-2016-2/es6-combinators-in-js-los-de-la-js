@@ -115,7 +115,7 @@ const ConcatMap = S(makeConcat)(makeMap)
 console.log(ConcatMap([2,4,6]))
 ```
 
-## Combinator T (Tap or Thrush)
+## Combinator T (Tap o Thrush)
 
 Se entrega un objeto y una función, retorna el objeto evaluado en esa función
 
