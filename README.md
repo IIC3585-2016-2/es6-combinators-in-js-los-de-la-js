@@ -12,7 +12,7 @@ Existen muchos combinators, por lo que se les prestará mayor atención a aquell
 - [Combinator C (Cardinal o Flip)](#combinator-c-cardinal-o-flip)
 - [Combinator K (Krestel)](#combinator-k-krestel)
 - [Combinator S (Starling)](#combinator-s-starling)
-- [Combinator T (Thrush o Tap)](#combinator-t-thrush-o-tap)
+- [Combinator T (Tap o Thrush)](#combinator-t-tap-o-thrush)
 - [Combinator V (Vireo)](#combinator-v-vireo)
 - [Combinator W (Warbler)](#combinator-w-warbler)
 - [Combinator M (MockingBird)](#combinator-m-mockingbird)
@@ -146,7 +146,7 @@ const ConcatMap = S(makeConcat)(makeMap)
 console.log(ConcatMap([2,4,6]))
 ```
 
-## Combinator T (Tap or Thrush)
+## Combinator T (Tap o Thrush)
 
 Se entrega un objeto y una función, retorna el objeto evaluado en esa función
 
