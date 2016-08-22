@@ -2,7 +2,7 @@
 
 Los combinators corresponden a un concepto abstracto en la programación, estas son funciones puras que actúan en otras funciones para crear nuevas funciones. Este concepto corresponde a cualquier lenguaje de programación. En particular se ejemplificará en lenguaje Javascript.
 
-Muchas de estas funciones vienen del libro Raymond Smullyan "To Mock a Mockingbird", que contiene diversos puzles lógicos que son resueltos en base a estas (por lo mismo muchas de estas son nombradas con especies de aves, debido al fanatismo del autor).
+El primero en investigar acerca de los combinators fue Haskell Curry que era fanatico de las aves (por lo mismo muchas de estas son nombradas con especies de aves). Más adelante, Raymond Smullyan escribio el libro "To Mock a Mockingbird", que contiene diversos puzles lógicos que son resueltos en base a estas combinators.
 
 Existen muchos combinators, por lo que se les prestará mayor atención a aquellos que son más utilizados.
 
@@ -77,9 +77,7 @@ console.log(mapPowPlusOne([2,3,6,7,8]));
 
 ## Combinator C (Cardinal o Flip)
 
-Se utiliza para invertir los parametros de una funcion con dos parametros
-
-Invierte los parámetros de una función
+Se utiliza para invertir los parametros de una funcion con dos parámetros de entrada.
 
 ``` javascript
 const C = a => b => c => a(c)(b)
@@ -300,11 +298,23 @@ console.log(doubleFact(4))
 
 ## Combinator Y (SageBird)
 
-Solo funciona en lenguajes funcionales, realiza una recursión sin necesidad de funciones ni parámetros. Generaliza la recursión.
+Solo funciona en lenguajes funcionales, realiza una recursión sin necesidad de declarar funciones ni variables, solo parámetros y funciones no declaradas. Generaliza la recursión.
 
 
 ``` javascript
 const Y = a => (b => b(b))(b => a(c => b(b)(c)))
+```
+
+``` javascript
+var Y = function Y(a) {
+  return function (b) {
+    return b(b);
+  }(function (b) {
+    return a(function (c) {
+      return b(b)(c);
+    });
+  });
+};
 ```
 
 Ejemplo:
