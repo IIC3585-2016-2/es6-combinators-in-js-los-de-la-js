@@ -5,7 +5,7 @@
 // Definition of K combinator
 const K = x => y => x
 
-// function that return Hello
+// function that return 123
 const oneTwoThree = K(123);
 
 // print 123

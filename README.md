@@ -11,12 +11,12 @@ Existen infinitos combinators, por lo que se les prestará mayor atención a aqu
 - [Combinator C (Cardinal)](#combinator-c-cardinal)
 - [Combinator K (Krestel)](#combinator-k-krestel)
 - [Combinator S (Starling)](#combinator-s-starling)
-- [Combinator T (Tap)](#combinator-t-tap)
+- [Combinator T (Tap)](#combinator-t-tap-or-thrush)
 - [Combinator V (Vireo)](#combinator-v-vireo)
 - [Combinator W (Warbler)](#combinator-w-warbler)
 - [Combinator M (MockingBird)](#combinator-m-mockingbird)
 - [Combinator L (Lark)](#combinator-l-lark)
-- [Combinator Y (MockingBird)](#combinator-y-mockingbird)
+- [Combinator Y (SageBird)](#combinator-y-mockingbird)
 
 
 
@@ -46,6 +46,8 @@ console.log(mapPowPlusOne([2,3,6,7,8]));
 
 ## Combinator C (Cardinal)
 
+Invierte los parámetros de una función
+
 ``` javascript
 const C = a => b => c => a(c)(b)
 ```
@@ -68,6 +70,8 @@ console.log(makeConcat([1,2,3,4])([5,6,7,8]))
 
 ## Combinator K (Krestel)
 
+Retorna siempre una función constante
+
 ``` javascript
 const K = x => y => x
 ```
@@ -75,7 +79,7 @@ const K = x => y => x
 Ejemplo:
 
 ``` javascript
-// function that return Hello
+// function that return 123
 const oneTwoThree = K(123);
 
 // print 123
@@ -86,6 +90,8 @@ console.log(oneTwoThree([1,2,3,4,5,6,7,8]))
 ```
 
 ## Combinator S (Starling)
+
+Ejecuta una función de dos parámetros, uno ingresado por el usuario y el otro es el resultado de una función del parámetro entregado por el usuario
 
 ``` javascript
 const S = a => b => c => a(c)(b(c))
@@ -107,7 +113,9 @@ const ConcatMap = S(makeConcat)(makeMap)
 console.log(ConcatMap([2,4,6]))
 ```
 
-## Combinator T (Tap)
+## Combinator T (Tap or Thrush)
+
+Se entrega un objeto y una función, retorna el objeto evaluado en esa función
 
 ``` javascript
 const T = a => b => b(a)
@@ -147,6 +155,8 @@ console.log(array(maxArray));
 
 ## Combinator V (Vireo)
 
+Se le entrega dos objetos y una función, retorna los objetos evaluados en la función
+
 ``` javascript
 const V = a => b => c => c(a)(b)
 ```
@@ -165,6 +175,8 @@ console.log(cons(3)(7)(sum))
 ```
 
 ## Combinator W (Warbler)
+
+Ingresa a una función parámetros duplicados
 
 ``` javascript
 const W = a => b => a(b)(b)
@@ -191,6 +203,9 @@ console.log(multDuplicateAdd(makeAdd(2)(3)))
 
 ## Combinator M (MockingBird)
 
+Se utiliza para definir una recursión anónima, es decir, la función que ejecuta la recursión no se declara en ninguna parte dentro de la recursión, sino que se entrega como parámetro
+
+
 ``` javascript
 const M = a => a(a)
 ```
@@ -198,9 +213,6 @@ const M = a => a(a)
 Ejemplo:
 
 ``` javascript
-// Definicion del combinador M
-const M = a => a(a)
-
 // Funcion que ejecuta el factorial, pasandole la funcion factorial com
 // parametro, es una recursion anonima, pues no se declara el factorial
 // en ninguna parte.
@@ -223,6 +235,9 @@ console.log(fact(4))
 ```
 
 ## Combinator L (Lark)
+
+Se pasa como parámetro el resultado de una función recursiva a otra función (esta no necesariamente tiene que ser recursiva).
+Esta es una combinación entre el combinador B y M.
 
 ``` javascript
 const L = a => b => a(b(b))
@@ -249,7 +264,9 @@ console.log(doubleFact(4))
 
 ```
 
-## Combinator Y (MockingBird)
+## Combinator Y (SageBird)
+
+Solo funciona en lenguajes funcionales, realiza una recursión sin necesidad de funciones ni parámetros. Generaliza la recursión.
 
 ``` javascript
 const Y = a => (b => b(b))(b => a(c => b(b)(c)))

@@ -1,4 +1,4 @@
-// Combinator Y
+// Combinator Y or Why Bird or Sage Bird
 // The Y combinator is an interesting function which only works with functional languages,
 // showing how recursion can still be done even without any variable or function declarations,
 //  only functions and parameters.
