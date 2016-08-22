@@ -7,6 +7,7 @@ Muchas de estas funciones vienen del libro Raymond Smullyan "To Mock a Mockingbi
 Existen muchos combinators, por lo que se les prestará mayor atención a aquellos que son más utilizados.
 
 ## Tabla de contenido
+- [Combinator I (Identity)](#combinator-i-identity)
 - [Combinator B (Bluebird o Composer)](#combinator-b-bluebird-o-composer)
 - [Combinator C (Cardinal o Flip)](#combinator-c-cardinal-o-flip)
 - [Combinator K (Krestel)](#combinator-k-krestel)
@@ -19,6 +20,36 @@ Existen muchos combinators, por lo que se les prestará mayor atención a aquell
 - [Combinator Y (SageBird)](#combinator-y-sagebird)
 
 
+## Combinator I (Identity)
+
+Entrega el mismo parámetro como resultado
+
+``` javascript
+const I = a => a
+```
+
+Ejemplo:
+
+``` javascript
+// Function Example
+
+// return first element of array
+const getFirstElement = (array) => array[0]
+
+const first = I(getFirstElement)
+
+// print 0
+console.log(first([0,1,2,3]))
+
+
+// Constant Example
+
+// return number 4
+const numberFour = I(4)
+
+// print 4
+console.log(numberFour)
+```
 
 ## Combinator B (Bluebird o Composer)
 
@@ -341,5 +372,9 @@ var mergeSort = Y(makeMergeSort);
 
 // print [1,2,3,4,5,6]
 console.log(mergeSort([2,4,1,3,6,5]));
-
 ```
+
+## Links de interés
+
+- https://www.npmjs.com/package/combinators-js
+-
